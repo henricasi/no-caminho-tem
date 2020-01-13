@@ -6,3 +6,11 @@ body {
 a {
   color: #00B7FF;
 }
+
+.profile-picture-small {
+  width: 150px;
+}
+
+.profile-picture-medium {
+  width: 250px;
+}

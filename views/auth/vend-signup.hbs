@@ -1,0 +1,30 @@
+<form id="form" action="/vend-signup" method="POST">
+  <label for="name">Nome da vendinha</label>
+  <input type="text" name="name">
+    <br>
+  <label for="name">Adicione uma descrição</label>
+  <input type="textarea" name="description">
+    <br>
+
+  <label for="categories">Categorias de produtos</label>
+  <input type="checkbox" name="cat1" value="Café"> Café<br>
+  <input type="checkbox" name="cat2" value="Doces"> Doces<br>
+  <input type="checkbox" name="cat3" value="Salgados"> Salgados<br>
+  <input type="checkbox" name="cat4" value="Pipoca"> Pipoca<br>
+  <input type="checkbox" name="cat5" value="Frutas"> Frutas<br>
+
+  <p>Localização</p>
+  <label for="lat">Latitude</label>
+  <input type="text" name="lat">
+    <br>
+  <label for="long">Longitude</label>
+  <input type="text" name="long">
+    <br>
+  <label for="times">Horário de funcionamento</label> {{!-- //TODO melhorar input horas. select? --}}
+  <input type="time" name="startTime">
+  <input type="time" name="endTime">
+    <br><br>
+
+
+  <button type="submit">Adicionar vendinha</button>
+</form>

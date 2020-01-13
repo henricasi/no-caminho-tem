@@ -1,0 +1,20 @@
+<div class="container">
+  <figure>
+    <img class="profile-picture-small" src="{{owner.profilePicturePath}}" alt="{{owner.name}}">
+  </figure>
+  <div class="venda-info">
+    <h3>{{name}}</h3>
+    <p>{{description}}</p>
+    <p>Categorias: {{#each categories}}
+      {{#if @last}}
+      <span>{{this}}</span>
+      {{else}}
+      <span>{{this}}, </span>
+      {{/if}}
+      {{/each}}
+      </p>
+    <p>Horário: {{startTime}} - {{endTime}}</p>
+    {{!-- //TODO adicionar média avaliações --}}
+    <a href="/venda/{{_id}}">Mais detalhes</a>
+  </div>
+</div> 

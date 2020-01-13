@@ -1,0 +1,26 @@
+<form id="form" action="/signup" method="POST" enctype="multipart/form-data">
+  <label for="username">Nome de usuário</label>
+  <input type="text" name="username">
+    <br>
+  <label for="password">Senha</label>
+  <input type="password" name="password" placeholder="********">
+    <br>
+  <label for="name">Nome</label>
+  <input type="text" name="name">
+    <br>
+  <label for="lastName">Sobrenome</label>
+  <input type="text" name="lastName">
+    <br>
+  <label for="photo">Foto de perfil</label>
+  <input type="file" name="photo">
+    <br>
+
+  <label for="role">Pretende cadastrar uma vendinha?</label>
+  <input type="radio" name="role" value="USER" checked> Não<br>
+  <input type="radio" name="role" value="SELLER"> Sim<br>
+
+  <button type="submit">Criar conta</button>
+</form>
+
+<br><br>
+<a href="/vend-signup">Criar perfil de vendedor?</a>

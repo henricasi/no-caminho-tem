@@ -1,9 +1,19 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const Venda = require('../models/venda');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/', (req, res, next) => {
+  res.render('index');
+});
+
+router.get('/vendas', (req, res, next) => {
+  Venda.find()
+  .populate('owner')
+  .then(vendas => {
+    console.log(vendas);
+    res.render('vendas', {vendas})
+  })
+  .catch(err => console.log(err))
 });
 
 module.exports = router;
