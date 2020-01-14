@@ -10,7 +10,7 @@ router.get('/vendas', (req, res, next) => {
   Venda.find()
   .populate('owner')
   .then(vendas => {
-    console.log(vendas);
+    // console.log(vendas);
     res.render('vendas', {vendas})
   })
   .catch(err => console.log(err))

@@ -7,7 +7,7 @@ const vendaSchema = new Schema({
   description: String,
   categories: [String],
   // products: [String], //TODO permitir adicionar produtos
-  location: { type: { type: String }, coordinates: [Number] },
+  location: { type: { type: String }, coordinates: {type: [Number]} },
   startTime: String, //TODO permitir mais horários
   endTime: String,
   ratings: [{

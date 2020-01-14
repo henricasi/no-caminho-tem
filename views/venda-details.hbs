@@ -34,5 +34,9 @@
     <a href="{{this.path}}"><img src="{{this.path}}" alt=""></a>
     {{/each}}
   </div>
+  {{#if isSameOwner}}
+  <a href="/edit-venda/{{_id}}">Editar</a>
+  <a href="/delete-venda/{{_id}}">Deletar</a>
+  {{/if}}
   <a href="/app">Voltar</a>
 </div> 
