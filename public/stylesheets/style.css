@@ -14,3 +14,7 @@ a {
 .profile-picture-medium {
   width: 250px;
 }
+
+.card {
+  border: 1px solid black;
+}

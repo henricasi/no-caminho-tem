@@ -69,9 +69,9 @@ router.get('/vend-signup', checkRoles("SELLER"), (req, res, next) => {
 });
 
 router.post('/vend-signup', (req, res, next) => {
-  const {name, description, lat, long, startTime, endTime} = req.body;
+  const {name, description, streetAddress, lat, long, startTime, endTime} = req.body;
   let categories = [];
-  let myLocation = [parseFloat(long), parseFloat(lat)];
+  let myLocation = [long, lat];
   for (let i = 1; i <= 5; i +=1) {
     let prop = 'cat' + i;
     if (req.body[prop]) {categories.push(req.body[prop])}
@@ -82,12 +82,13 @@ router.post('/vend-signup', (req, res, next) => {
     owner: req.user._id,
     description,
     categories,
+    streetAddress,
     location: {
       type: "Point",
       coordinates: myLocation
     },
     startTime,
-    endTime
+    endTime,
   })
   .then(newVenda => {
     Venda.findOne({_id: newVenda._id})
@@ -112,6 +113,25 @@ router.get('/app', (req, res, next) => {
   res.render('app');
 });
 
+router.post('/upload-picture', uploadCloud.single('photo'), (req, res, next) => {
+  const path = req.file.url;
+  console.log("Path:")
+  console.log(path);
+  const {description, _id} = req.body;
+  const newPic = {
+    description,
+    path
+  };
+  console.log("New pic:")
+  console.log(newPic);
+  Venda.updateOne(_id, {$push: {pictures: newPic}})
+  .then(venda => {
+    console.log("sucesso");
+    res.redirect('/');
+  })
+  .catch(err => console.log(err))
+})
+
 router.get('/venda/:id', (req, res, next) => {
   Venda.findById(req.params.id)
   .populate('owner')
@@ -135,7 +155,7 @@ router.get('/edit-venda/:id', (req, res, next) => {
 })
 
 router.post('/edit-venda', (req, res, next) => {
-  const {name, description, lat, long, startTime, endTime} = req.body;
+  const {name, description, streetAddress, lat, long, startTime, endTime} = req.body;
   let categories = [];
   let location = [parseFloat(long), parseFloat(lat)];
   for (let i = 1; i <= 5; i +=1) {
@@ -148,6 +168,7 @@ router.post('/edit-venda', (req, res, next) => {
     owner: req.user._id,
     description,
     categories,
+    streetAddress,
     location: {
       type: "Point",
       coordinates: location

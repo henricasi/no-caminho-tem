@@ -14,18 +14,30 @@
   <input type="checkbox" name="cat5" value="Frutas"> Frutas<br>
 
   <p>Localização</p>
-  <label for="lat">Latitude</label>
-  <input value="{{location.coordinates.[1]}}" type="text" name="lat">
-    <br>
-  <label for="long">Longitude</label>
-  <input value="{{location.coordinates.[0]}}" type="text" name="long">
-    <br>
+  <input id="latitude" value="{{location.coordinates.[1]}}" type="text" name="lat" hidden>
+  <input id="longitude" value="{{location.coordinates.[0]}}" type="text" name="long"hidden>
+  <input id="streetAddress" type="address" name="streetAddress" value="{{streetAddress}}">
+
+
   <label>Horário de funcionamento</label> 
   <input value={{startTime}} type="time" name="startTime">
   <input value={{endTime}} type="time" name="endTime">
     <br><br>
 
+    <br>
   <input type="hidden" name="id" value="{{_id}}">
 
   <button type="submit">Salvar alterações</button>
+</form>
+<br>
+<br>
+
+<form action="/upload-picture" method="POST" enctype="multipart/form-data">
+
+  <label for="photo">Carregar foto</label>
+  <input type="file" name="photo">
+  <label for="description">Descrição</label>
+  <input type="text" name="description">
+  <input type="hidden" name="id" value="{{_id}}">
+  <button type="submit">Fazer upload</button>
 </form>
