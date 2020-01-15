@@ -1,4 +1,6 @@
-<form id="form" action="/vend-signup" method="POST">
+<h2>Cadastrar nova vendinha</h2>
+
+<form id="form" action="/add-venda" method="POST">
   <label for="name">Nome da vendinha</label>
   <input type="text" name="name">
     <br>
@@ -13,17 +15,15 @@
   <input type="checkbox" name="cat4" value="Pipoca"> Pipoca<br>
   <input type="checkbox" name="cat5" value="Frutas"> Frutas<br>
 
-  <p>Endereço</p>
-  <p>Localização</p>
-  <input id="latitude" type="text" name="lat">
-  <input id="longitude" type="text" name="long">
+  <label for="streetAddress">Endereço</label>
+  <input id="latitude" type="text" name="lat" hidden>
+  <input id="longitude" type="text" name="long" hidden>
   <input id="streetAddress" type="address" name="streetAddress">
     <br>
   <label for="times">Horário de funcionamento</label>
   <input type="time" name="startTime">
   <input type="time" name="endTime">
     <br><br>
-
 
   <button type="submit">Adicionar vendinha</button>
 </form>

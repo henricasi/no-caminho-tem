@@ -1,0 +1,44 @@
+<form id="form" action="/seller-signup" method="POST" enctype="multipart/form-data">
+  <h4>Seus dados</h4>
+  <input type="text" name="username" placeholder="Nome de usuário">
+    <br>
+  <input type="password" name="password" placeholder="Digite uma senha">
+    <br>
+  <input type="text" name="name" placeholder="Seu nome">
+    <br>
+  <input type="text" name="lastName" placeholder="Seu sobrenome">
+    <br><br>
+  <label for="photo">Carregue uma foto de perfil</label> <br>
+  <input type="file" name="photo">
+    <br><br>
+
+  <h4>Dados da sua vendinha</h4>
+
+  <input type="text" name="vendname" placeholder="Nome da sua vendinha"> 
+    <br>
+  <input type="textarea" name="description" placeholder="Adicione uma breve descrição">
+    <br>
+
+  <label for="categories">Categorias de produtos</label> <br>
+  <input type="checkbox" name="cat1" value="Café"> Café<br>
+  <input type="checkbox" name="cat2" value="Doces"> Doces<br>
+  <input type="checkbox" name="cat3" value="Salgados"> Salgados<br>
+  <input type="checkbox" name="cat4" value="Pipoca"> Pipoca<br>
+  <input type="checkbox" name="cat5" value="Frutas"> Frutas<br> <br>
+
+  <label for="streetAddress">Endereço de operação</label> <br>
+  <input id="latitude" type="text" name="lat" hidden>
+  <input id="longitude" type="text" name="long" hidden>
+  <input id="streetAddress" type="address" name="streetAddress" placeholder="Rua, n° - Cidade">
+    <br><br>
+  <label for="times">Horário de funcionamento</label> <br>
+  <input type="time" name="startTime">
+  <input type="time" name="endTime">
+    <br><br>
+
+  <button type="submit">Concluir cadastro</button>
+</form>
+
+{{#if errorMessage}}
+  <div class="error-message">{{ errorMessage }}</div>
+{{/if}}

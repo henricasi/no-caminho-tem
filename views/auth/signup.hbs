@@ -1,26 +1,18 @@
 <form id="form" action="/signup" method="POST" enctype="multipart/form-data">
-  <label for="username">Nome de usuário</label>
-  <input type="text" name="username">
+  <input type="text" name="username" placeholder="Nome de usuário">
     <br>
-  <label for="password">Senha</label>
-  <input type="password" name="password" placeholder="********">
+  <input type="password" name="password" placeholder="Digite uma senha">
     <br>
-  <label for="name">Nome</label>
-  <input type="text" name="name">
+  <input type="text" name="name" placeholder="Seu nome">
     <br>
-  <label for="lastName">Sobrenome</label>
-  <input type="text" name="lastName">
+  <input type="text" name="lastName" placeholder="Seu sobrenome">
     <br>
-  <label for="photo">Foto de perfil</label>
+  <label for="photo">Carregue uma foto de perfil</label> <br>
   <input type="file" name="photo">
-    <br>
-
-  <label for="role">Pretende cadastrar uma vendinha?</label>
-  <input type="radio" name="role" value="USER" checked> Não<br>
-  <input type="radio" name="role" value="SELLER"> Sim<br>
-
+    <br> <br>
   <button type="submit">Criar conta</button>
 </form>
 
-
-<br><br>
+{{#if errorMessage}}
+  <div class="error-message">{{ errorMessage }}</div>
+{{/if}}

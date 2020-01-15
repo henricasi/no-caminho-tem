@@ -76,9 +76,7 @@ app.use(passport.session());
 
 // ROTAS
 const indexRoutes = require('./routes/index');
-const authRoutes = require('./routes/auth');
 app.use('/', indexRoutes);
-app.use('/', authRoutes);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

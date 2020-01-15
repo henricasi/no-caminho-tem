@@ -13,7 +13,7 @@
   <input type="checkbox" name="cat4" value="Pipoca"> Pipoca<br>
   <input type="checkbox" name="cat5" value="Frutas"> Frutas<br>
 
-  <p>Localização</p>
+  <label for="streetAddress">Endereço</label>
   <input id="latitude" value="{{location.coordinates.[1]}}" type="text" name="lat" hidden>
   <input id="longitude" value="{{location.coordinates.[0]}}" type="text" name="long"hidden>
   <input id="streetAddress" type="address" name="streetAddress" value="{{streetAddress}}">
@@ -32,10 +32,12 @@
 <br>
 <br>
 
+<h4>Adicionar fotos</h4>
 <form action="/upload-picture" method="POST" enctype="multipart/form-data">
 
   <label for="photo">Carregar foto</label>
   <input type="file" name="photo">
+  <br>
   <label for="description">Descrição</label>
   <input type="text" name="description">
   <input type="hidden" name="id" value="{{_id}}">

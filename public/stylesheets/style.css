@@ -12,9 +12,17 @@ a {
 }
 
 .profile-picture-medium {
-  width: 250px;
+  width: 200px;
 }
 
 .card {
   border: 1px solid black;
+}
+
+.windowpic {
+  height: 100px;
+}
+
+.details-picture {
+  height: 200px;
 }

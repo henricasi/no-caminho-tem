@@ -4,9 +4,9 @@
     <caption>{{owner.name}} {{owner.lastName}}</caption>
   </figure>
   {{!-- exibir infos da vendinha --}}
-  <div class="venda-info">
+  <section class="venda-info">
     <h2>{{name}}</h2>
-    <p>{{description}}</p>
+    <p><i>{{description}}</i></p>
     <p>Categorias: {{#each categories}}
       {{#if @last}}
       <span>{{this}}</span>
@@ -15,12 +15,38 @@
       {{/if}}
       {{/each}}
       </p>
-    <p>Endereço: {{streetAddress}}</p>
-    <p>Horário: {{startTime}} - {{endTime}}</p>
-  </div>
+    <p>Endereço: <strong>{{streetAddress}}</strong></p>
+    <p>Horário: <strong>{{startTime}} - {{endTime}}</strong></p>
+  </section>
+  {{!-- exibir imagens da vendinha --}}
+  <section class="pictures">
+    <h3>Imagens</h3>
+    {{#each pictures}}
+    <figure>
+    <a href="{{this.path}}"><img class="details-picture" src="{{this.path}}" alt=""></a>
+    </figure>
+    {{/each}}
+  </section>
   {{!-- exibir avaliações da vendinha --}}
-  <div class="ratings-container">
+  <section class="ratings-container">
     <h3>Avaliações</h3>
+    {{#if isLogged}}
+    <h4>Adicionar avaliação</h4>
+    <form action="/add-rating" method="POST">
+      <label for="rating">Nota</label>
+      <input type="radio" name="rating" value="1">
+      <input type="radio" name="rating" value="2">
+      <input type="radio" name="rating" value="3">
+      <input type="radio" name="rating" value="4">
+      <input type="radio" name="rating" value="5">
+      <br>
+      <input type="text" name="content">
+      <input type="hidden" name="userId" value="{{userId}}">
+      <input type="hidden" name="vendaId" value="{{_id}}">
+      <input type="submit" value="enviar"> 
+    </form>
+    {{/if}}
+
     {{#each ratings}}
     <div class="rating">
       <p>Nota: <strong>{{this.rating}}</strong></p>   {{!-- //TODO trocar nota por estrelas --}}
@@ -28,16 +54,16 @@
       <p>Usuário: {{this.user}}</p>
     </div>
     {{/each}}
+    <a href="/venda/ratings/{{_id}}">Ver todas as avaliações</a>
+  </section>
+  {{#if isOwner}}
+  <div>
+    <h6>Controles</h6>
+    <a href="/edit-venda/{{_id}}">Editar</a><br>
+    <a href="/delete-venda/{{_id}}">Deletar</a>
   </div>
-  {{!-- exibir imagens da vendinha --}}
-  <div class="pictures">
-    {{#each pictures}}
-    <a href="{{this.path}}"><img src="{{this.path}}" alt=""></a>
-    {{/each}}
-  </div>
-  {{#if isSameOwner}}
-  <a href="/edit-venda/{{_id}}">Editar</a>
-  <a href="/delete-venda/{{_id}}">Deletar</a>
   {{/if}}
   <a href="/app">Voltar</a>
-</div> 
+</div>
+
+{{!-- //TODO minimapa na página de detalhes --}}

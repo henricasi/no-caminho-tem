@@ -1,15 +1,45 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{title}}</title>
+    <title>PROJETO 2</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand mx-4" href="/">PROJETO 2</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        {{#unless isLogged}}
+        <li class="nav-item active">
+          <a class="nav-link" href="/signup">Criar conta<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Entrar</a>
+        </li>
+        {{/unless}}
+        {{#if isLogged}}
+        {{#if isSeller}}
+        <li class="nav-item">
+          <a class="nav-link" href="/minhas-vendas">Minhas vendinhas</a>
+        </li>
+        {{/if}}
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Sair</a>
+        </li>
+        {{/if}}
+      </ul>
+    </div>
+  </nav>
+
     {{{body}}}
 
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1Nrr3Ohx4RW9I-T-U2e_n6-3ufKidqko&callback=geocodeInit"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/geocode.js"></script>
   <script src="/javascripts/script.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1Nrr3Ohx4RW9I-T-U2e_n6-3ufKidqko&callback=mapsInit"></script>
   </body>
 </html>
