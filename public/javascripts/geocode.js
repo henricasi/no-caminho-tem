@@ -54,7 +54,7 @@ function startMap() {
   // Initialize the map
   map = new google.maps.Map(document.getElementById('map'), 
     {
-      zoom: 15,
+      zoom: 17,
       center: ironhackSAO
     }
   );
@@ -100,7 +100,7 @@ let markers = [];
 function displayPicture(venda) {
   let string = "";
   if (venda.pictures.length > 0) {
-    string += `<figure><img class="windowpic" src="${venda.pictures[0].path}" alt="${venda.pictures[0].description}"></figure>`
+    string += `<figure class="text-center"><img class="windowpic" src="${venda.pictures[0].path}" alt="${venda.pictures[0].description}"></figure>`
   }
   return string;
 }
@@ -145,11 +145,11 @@ function createPin(venda) {
     title: venda.name
   });
   
-  const infoWindowContent = `<div class="infoWindow">${displayPicture(venda)}<h4>${venda.name}</h4><p>${categoriesHTML(venda.categories)}</p><p>Endereço: <strong>${venda.streetAddress}</strong></p><p>Horário: <strong>${venda.startTime} - ${venda.endTime}</strong></p><a href="/venda/${venda._id}">Mais detalhes</a></div`;
+  const infoWindowContent = `<div class="infoWindow">${displayPicture(venda)}<h3 class="venda-name">${venda.name}</h3><p><i>${categoriesHTML(venda.categories)}</i></p><p><strong>${venda.streetAddress}</strong></p><p><strong>${venda.startTime} - ${venda.endTime}</strong></p><div class="window-link"><a href="/venda/${venda._id}">Mais detalhes</a></div></div>`;
   
   const infowindow = new google.maps.InfoWindow({
     content: infoWindowContent,
-    maxWidth: 300
+    maxWidth: 400
   });
   
   pin.addListener('click', function () {

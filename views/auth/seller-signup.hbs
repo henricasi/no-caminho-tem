@@ -1,44 +1,83 @@
-<form id="form" action="/seller-signup" method="POST" enctype="multipart/form-data">
-  <h4>Seus dados</h4>
-  <input type="text" name="username" placeholder="Nome de usuário">
-    <br>
-  <input type="password" name="password" placeholder="Digite uma senha">
-    <br>
-  <input type="text" name="name" placeholder="Seu nome">
-    <br>
-  <input type="text" name="lastName" placeholder="Seu sobrenome">
-    <br><br>
-  <label for="photo">Carregue uma foto de perfil</label> <br>
-  <input type="file" name="photo">
-    <br><br>
+<div class="container backdrop h-100">
+  <div class="form-container p-3">
+    <div class="container py-5 w-50 d-flex flex-column justify-content-center">
+      <h3>Crie sua conta</h3>
+      <div class="mt-3" id="form" action="/seller-signup" method="POST" enctype="multipart/form-data">
+        <h5>Seus dados</h5>
+        <div class="form-group">
+          <input class="form-control" type="text" name="username" placeholder="Nome de usuário">
+        </div>
+        <div class="form-group">
+          <input class="form-control" type="password" name="password" placeholder="Digite uma senha">
+        </div>
+        <div class="form-group">
+          <input class="form-control"  type="text" name="name" placeholder="Seu nome">  
+        </div>
+        <div class="form-group">
+          <input class="form-control"  type="text" name="lastName" placeholder="Seu sobrenome">  
+        </div>
+        <div class="form-group">
+          <div class="custom-file">
+            <input type="file" id="validatedCustomFile" class="custom-file-input" name="photo">
+            <label class="custom-file-label" for="validatedCustomFile">Carregue uma foto de perfil</label>
+          </div>
+        </div>
 
-  <h4>Dados da sua vendinha</h4>
+        <h5>Dados da sua vendinha</h5>
+        <div class="form-group">
+          <input class="form-control" type="text" name="vendname" placeholder="Nome da sua vendinha"> 
+        </div>
+        <div class="form-group">
+          <input class="form-control" type="textarea" name="description" placeholder="Adicione uma breve descrição">  
+        </div>
+        <div class="form-group">
+          <p>Categorias de produtos</p>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="cat1" value="Café">
+            <label class="form-check-label" for="cat1">Café</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="cat2" value="Doces">
+            <label class="form-check-label" for="cat2">Doces</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="cat3" value="Salgados">
+            <label class="form-check-label" for="cat3">Salgados</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="cat4" value="Pipoca">
+            <label class="form-check-label" for="cat4">Pipoca</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="cat5" value="Frutas">
+            <label class="form-check-label" for="cat5">Frutas</label>
+          </div>
+        </div>
+        <div class="form-group">  
+          <label for="streetAddress">Endereço de operação</label> 
+          <input id="latitude" type="text" name="lat" hidden>
+          <input id="longitude" type="text" name="long" hidden>
+          <input class="form-control" id="streetAddress" type="address" name="streetAddress" placeholder="Rua, n° - Cidade">
+        </div>
+        <div class="form-group">
+          <label for="times">Horário de funcionamento</label> 
+          <div class="form-row">
+            <div class="col">
+              <input class="form-control" type="time" name="startTime">
+            </div>
+            <div class="col">
+              <input class="form-control" type="time" name="endTime">
+            </div>
+          </div>
+        </div>
+        <div class="d-flex flex-row-reverse">
+          <button type="submit" class="btn btn-primary">Concluir cadastro</button>
+        </div>
+      </form>
 
-  <input type="text" name="vendname" placeholder="Nome da sua vendinha"> 
-    <br>
-  <input type="textarea" name="description" placeholder="Adicione uma breve descrição">
-    <br>
-
-  <label for="categories">Categorias de produtos</label> <br>
-  <input type="checkbox" name="cat1" value="Café"> Café<br>
-  <input type="checkbox" name="cat2" value="Doces"> Doces<br>
-  <input type="checkbox" name="cat3" value="Salgados"> Salgados<br>
-  <input type="checkbox" name="cat4" value="Pipoca"> Pipoca<br>
-  <input type="checkbox" name="cat5" value="Frutas"> Frutas<br> <br>
-
-  <label for="streetAddress">Endereço de operação</label> <br>
-  <input id="latitude" type="text" name="lat" hidden>
-  <input id="longitude" type="text" name="long" hidden>
-  <input id="streetAddress" type="address" name="streetAddress" placeholder="Rua, n° - Cidade">
-    <br><br>
-  <label for="times">Horário de funcionamento</label> <br>
-  <input type="time" name="startTime">
-  <input type="time" name="endTime">
-    <br><br>
-
-  <button type="submit">Concluir cadastro</button>
-</form>
-
-{{#if errorMessage}}
-  <div class="error-message">{{ errorMessage }}</div>
-{{/if}}
+    {{#if errorMessage}}
+      <div class="error-message">{{ errorMessage }}</div>
+    {{/if}}
+    </div>
+  </div>
+</div>

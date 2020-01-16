@@ -1,9 +1,9 @@
-<div class="card">
+<div class="d-flex flex-row p-4">
   <figure>
     <img class="profile-picture-small" src="{{owner.profilePicturePath}}" alt="{{owner.name}}">
   </figure>
-  <div class="venda-info">
-    <h3>{{name}}</h3>
+  <div class="venda-infos-text mx-4 p-2">
+    <h3 class="venda-name">{{name}}</h3>
     <p><i>{{description}}</i></p>
     <p>Categorias: {{#each categories}}
       {{#if @last}}
@@ -18,6 +18,4 @@
     <a href="/venda/{{_id}}">Mais detalhes</a>
   </div>
 </div>
-
-
-
+<hr>

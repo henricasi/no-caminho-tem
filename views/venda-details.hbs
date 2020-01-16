@@ -1,69 +1,86 @@
-<div class="container">
-  <figure>
-    <img class="profile-picture-medium" src="{{owner.profilePicturePath}}" alt="{{owner.name}}">
-    <caption>{{owner.name}} {{owner.lastName}}</caption>
-  </figure>
-  {{!-- exibir infos da vendinha --}}
-  <section class="venda-info">
-    <h2>{{name}}</h2>
-    <p><i>{{description}}</i></p>
-    <p>Categorias: {{#each categories}}
-      {{#if @last}}
-      <span>{{this}}</span>
-      {{else}}
-      <span>{{this}}, </span>
+<div class="container backdrop h-100">  {{!--irá conter todo o resto (separar do fundo)--}}
+  <div class="p-4 h-100">
+      {{#if isOwner}}
+      <div class="controls d-flex justify-content-end">
+        <a class="mx-3" href="/edit-venda/{{_id}}">Editar</a><br>
+        <a class="mx-3" href="/delete-venda/{{_id}}">Deletar</a>
+      </div>
+      <hr>
       {{/if}}
-      {{/each}}
-      </p>
-    <p>Endereço: <strong>{{streetAddress}}</strong></p>
-    <p>Horário: <strong>{{startTime}} - {{endTime}}</strong></p>
-  </section>
-  {{!-- exibir imagens da vendinha --}}
-  <section class="pictures">
-    <h3>Imagens</h3>
-    {{#each pictures}}
-    <figure>
-    <a href="{{this.path}}"><img class="details-picture" src="{{this.path}}" alt=""></a>
-    </figure>
-    {{/each}}
-  </section>
-  {{!-- exibir avaliações da vendinha --}}
-  <section class="ratings-container">
-    <h3>Avaliações</h3>
-    {{#if isLogged}}
-    <h4>Adicionar avaliação</h4>
-    <form action="/add-rating" method="POST">
-      <label for="rating">Nota</label>
-      <input type="radio" name="rating" value="1">
-      <input type="radio" name="rating" value="2">
-      <input type="radio" name="rating" value="3">
-      <input type="radio" name="rating" value="4">
-      <input type="radio" name="rating" value="5">
-      <br>
-      <input type="text" name="content">
-      <input type="hidden" name="userId" value="{{userId}}">
-      <input type="hidden" name="vendaId" value="{{_id}}">
-      <input type="submit" value="enviar"> 
-    </form>
-    {{/if}}
+    <section class="venda-infos d-flex mt-3">
+      <div class="seller">
+        <figure class="d-flex flex-column text-center">
+          <img class="profile-picture-medium" src="{{owner.profilePicturePath}}" alt="{{owner.name}}">
+          <caption>{{owner.name}} {{owner.lastName}}</caption>
+        </figure>
+      </div>
 
-    {{#each ratings}}
-    <div class="rating">
-      <p>Nota: <strong>{{this.rating}}</strong></p>   {{!-- //TODO trocar nota por estrelas --}}
-      <p>{{this.content}}</p>
-      <p>Usuário: {{this.user}}</p>
-    </div>
-    {{/each}}
-    <a href="/venda/ratings/{{_id}}">Ver todas as avaliações</a>
-  </section>
-  {{#if isOwner}}
-  <div>
-    <h6>Controles</h6>
-    <a href="/edit-venda/{{_id}}">Editar</a><br>
-    <a href="/delete-venda/{{_id}}">Deletar</a>
+      <div class="venda-infos-text mx-4 p-2">
+        <h2 class="venda-name">{{name}}</h2>
+        <p><i>{{description}}</i></p>
+        <p>Categorias: {{#each categories}}
+          {{#if @last}}
+          <span>{{this}}</span>
+          {{else}}
+          <span>{{this}}, </span>
+          {{/if}}
+          {{/each}}
+          </p>
+        <p>Endereço: <strong>{{streetAddress}}</strong></p>
+        <p>Horário: <strong>{{startTime}} - {{endTime}}</strong></p>
+      </div>
+
+      {{!-- inserir mini mapa aqui --}}
+
+    </section>
+    <hr>
+    {{!-- exibir imagens da vendinha --}}
+    <section class="pictures">
+      <h4>Imagens</h4>
+      <div class="d-flex justify-content-start flex-wrap">
+      {{#each pictures}}
+      <figure class="d-flex flex-column text-left mr-3 mb-3">
+        <a href="{{this.path}}"><img class="details-picture mb-2" src="{{this.path}}" alt="{{this.description}}"></a>
+        <caption>{{this.description}}</caption>
+      </figure>
+      {{/each}}
+      </div>
+    </section>
+    <hr>
+    {{!-- exibir avaliações da vendinha --}}
+    <section class="ratings">
+      <h4>Avaliações</h4>
+      {{#if isLogged}}
+      <h4>Adicionar avaliação</h4>
+      <form action="/add-rating" method="POST">
+        <label for="rating">Nota</label>
+        <input type="radio" name="rating" value="1">
+        <input type="radio" name="rating" value="2">
+        <input type="radio" name="rating" value="3">
+        <input type="radio" name="rating" value="4">
+        <input type="radio" name="rating" value="5">
+        <br>
+        <input type="text" name="content">
+        <input type="hidden" name="userId" value="{{userId}}">
+        <input type="hidden" name="vendaId" value="{{_id}}">
+        <input type="submit" value="enviar"> 
+      </form>
+      {{/if}}
+
+      {{#each ratings}}
+      <div class="rating">
+        <p>Nota: <strong>{{this.rating}}</strong></p>   {{!-- //TODO trocar nota por estrelas --}}
+        <p>{{this.content}}</p>
+        <p>Usuário: {{this.user}}</p>
+        <hr class="rating-separator">
+      </div>
+      {{/each}}
+      <div class="d-flex justify-content-between">
+        <a href="/venda/ratings/{{_id}}">Ver todas as avaliações</a>
+        <a href="/app" class="voltar">Voltar</a>
+      </div>
+    </section>
   </div>
-  {{/if}}
-  <a href="/app">Voltar</a>
 </div>
 
 {{!-- //TODO minimapa na página de detalhes --}}
