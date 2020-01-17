@@ -1,0 +1,13 @@
+<div class="container backdrop h-100">
+  <div class="partials-container pt-4">
+    <h2>Minhas vendas</h2>
+    {{#each vendas}}
+      {{>vendaPartial this}}
+    {{/each}}
+  </div>
+  <div class="pb-3">
+    <a href="/add-venda">Adicionar uma vendinha</a>
+  </div>
+</div>
+
+{{!-- //TODO colocar outra cor em adicionar venda --}}

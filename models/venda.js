@@ -7,15 +7,19 @@ const vendaSchema = new Schema({
   description: String,
   categories: [String],
   // products: [String], //TODO permitir adicionar produtos
+  streetAddress: String,
   location: { type: { type: String }, coordinates: {type: [Number]} },
   startTime: String, //TODO permitir mais horários
   endTime: String,
   ratings: [{
     rating: {type: Number, min: 1, max: 5},
     content: String,
-    user: { type : Schema.Types.ObjectId, ref: 'User' },
+    user: String,
   }],
-  pictures: Array,
+  pictures: [{
+    description: String,
+    path: String,
+  }],
 }, {
   timestamps: true
 })

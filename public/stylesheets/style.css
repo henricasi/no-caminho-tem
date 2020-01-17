@@ -1,10 +1,19 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 50px 50px 0 50px;
+  font: 14px "Open Sans", Helvetica, Arial, sans-serif;
+  background-color: #FEF2E4;
 }
 
 a {
   color: #00B7FF;
+}
+
+.col-6 {
+  padding: 0 5px;
+}
+
+p {
+  color: rgb(49, 49, 49);
 }
 
 .profile-picture-small {
@@ -12,5 +21,144 @@ a {
 }
 
 .profile-picture-medium {
-  width: 250px;
+  width: 200px;
+}
+
+.navbar {
+  background-color: #DD7373;
+}
+
+.nav-link {
+  font-weight: bold;
+}
+
+.windowpic {
+  height: 100px;
+}
+
+.details-picture {
+  height: 150px;
+}
+
+.category {
+  font-size: 1.2em;
+}
+
+strong {
+  font-size: 1.2em;
+}
+
+.username {
+  font-weight: bold;
+}
+
+.backdrop {
+  background-color: bisque;
+  height: 100%;
+  min-height: 94vh;
+}
+
+.venda-name {
+  font-family: 'Bitter', serif;
+  font-weight: 600;
+  color: #269ECC;
+}
+
+.filtros {
+  background-color: #FDEBD4;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.filtros > label {
+  margin-right: 10px;
+}
+
+.infoWindow > p {
+  font-size: large;
+}
+
+.window-link {
+  padding: 10px 5px;
+  font-size: larger;
+  font-weight: bold;
+  text-align: right;
+}
+
+.page-title {
+  font-family: 'Bitter', serif;
+  font-weight: 600;
+  color: #11465B !important; 
+}
+
+.landing-header, .landing-header-title{
+  font-family: 'Bitter', serif;
+  font-weight: 500;
+  font-size: 3.2rem;
+  color: #269ECC; 
+}
+
+.landing-header-title {
+  color: #2082A7; 
+}
+
+.landing-button {
+  background-color: #DD7373;
+  border-color: #DD7373;
+  padding: 1.5em 3.5em;
+}
+
+.btn-primary:hover {
+  background-color: #E07F7F !important;
+  border-color: #E07F7F !important;
+}
+
+.jumbo-background {
+  background-image: url('../images/hero3.jpg');
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.jumbotron {
+  background: rgba(219, 161, 161, 0.2);
+}
+
+.landing-text-container {
+  border-radius: 35px;
+  background: rgba(219, 161, 161, 0.9);
+  padding: 3rem 0;
+}
+
+.hero-text {
+  color: rgb(49, 49, 49);
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+  font-style: oblique;
+}
+
+.feature-header {
+  font-family: 'Bitter', serif;
+  font-weight: 500;
+  font-size: 2.2rem;
+  color: rgb(49, 49, 49);
+}
+
+.feature-img {
+ height: 370px;
+}
+
+.details-header {
+  font-family: 'Bitter', serif;
+  color: rgb(49, 49, 49);
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.landing-descrip {
+  line-height: 1.7em;
+}
+
+.signup-link {
+  font-size: 2em;
 }

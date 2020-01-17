@@ -1,0 +1,13 @@
+<div class="all-ratings"></div>
+  <h4>Avaliações para {{name}}</h4>
+
+  {{#each ratings}}
+  <div class="rating">
+    <p>Nota: <strong>{{this.rating}}</strong></p>   {{!-- //TODO trocar nota por estrelas --}}
+    <p>{{this.content}}</p>
+    <p>Usuário: {{this.user}}</p>
+  </div>
+  {{/each}}
+
+  <a href="/venda/{{_id}}" class="voltar">Voltar</a>
+</div>

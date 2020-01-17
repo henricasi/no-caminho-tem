@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  username: String,
+  username: {
+    type: String,
+    unique: true
+  },
   password: String,
   name: String,
   lastName: String,
@@ -11,8 +14,8 @@ const userSchema = new Schema({
     enum: ['USER', 'SELLER', 'ADMIN'],
     default: 'USER'
   },
+  favorites: [ { type : Schema.Types.ObjectId, ref: 'Venda' } ], //TODO implementar favoritos no front
   profilePicturePath: String
-  // vendas: [ { type : Schema.Types.ObjectId, ref: 'Venda' } ]
 }, {
   timestamps: true
 })
