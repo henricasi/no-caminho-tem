@@ -144,9 +144,21 @@ strong {
   color: rgb(49, 49, 49);
 }
 
+.feature-img {
+ height: 370px;
+}
+
 .details-header {
   font-family: 'Bitter', serif;
   color: rgb(49, 49, 49);
   font-size: 1.5rem;
   font-weight: 500;
+}
+
+.landing-descrip {
+  line-height: 1.7em;
+}
+
+.signup-link {
+  font-size: 2em;
 }
