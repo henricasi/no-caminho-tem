@@ -15,19 +15,19 @@
         </figure>
       </div>
 
-      <div class="venda-infos-text mx-4 p-2">
+      <div class="venda-infos-text mx-4 px-3">
         <h2 class="venda-name">{{name}}</h2>
         <p><i>{{description}}</i></p>
-        <p>Categorias: {{#each categories}}
+        <p>Categorias: <br>{{#each categories}}
           {{#if @last}}
-          <span>{{this}}</span>
+          <span class="category">{{this}}</span>
           {{else}}
-          <span>{{this}}, </span>
+          <span class="category">{{this}}, </span>
           {{/if}}
           {{/each}}
           </p>
-        <p>Endereço: <strong>{{streetAddress}}</strong></p>
-        <p>Horário: <strong>{{startTime}} - {{endTime}}</strong></p>
+        <p>Endereço:<br><strong>{{streetAddress}}</strong></p>
+        <p>Horário:<br><strong>{{startTime}} - {{endTime}}</strong></p>
       </div>
 
       {{!-- inserir mini mapa aqui --}}
@@ -36,7 +36,7 @@
     <hr>
     {{!-- exibir imagens da vendinha --}}
     <section class="pictures">
-      <h4>Imagens</h4>
+      <h4 class="details-header">Imagens</h4>
       <div class="d-flex justify-content-start flex-wrap">
       {{#each pictures}}
       <figure class="d-flex flex-column text-left mr-3 mb-3">
@@ -49,7 +49,10 @@
     <hr>
     {{!-- exibir avaliações da vendinha --}}
     <section class="ratings">
-      <h4>Avaliações</h4>
+      <h4 class="details-header">Avaliações</h4>
+      {{#unless ratings.0.rating}}
+      <p>Ainda não há avaliações!</p>
+      {{/unless}}
       {{#if isLogged}}
       <h4>Adicionar avaliação</h4>
       <form action="/add-rating" method="POST">
@@ -66,18 +69,23 @@
         <input type="submit" value="enviar"> 
       </form>
       {{/if}}
-
       {{#each ratings}}
       <div class="rating">
         <p>Nota: <strong>{{this.rating}}</strong></p>   {{!-- //TODO trocar nota por estrelas --}}
         <p>{{this.content}}</p>
-        <p>Usuário: {{this.user}}</p>
+        <p>Usuário: <span class="username">{{this.user}}</span></p>
         <hr class="rating-separator">
       </div>
       {{/each}}
+
+      {{#if ratings.0.rating}}
       <div class="d-flex justify-content-between">
-        <a href="/venda/ratings/{{_id}}">Ver todas as avaliações</a>
+          <a href="/venda/ratings/{{_id}}">Ver todas as avaliações</a>
         <a href="/app" class="voltar">Voltar</a>
+      {{else}}
+      <div class="d-flex justify-content-end">
+        <a href="/app" class="voltar">Voltar</a>
+      {{/if}}
       </div>
     </section>
   </div>

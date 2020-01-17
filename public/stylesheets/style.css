@@ -12,6 +12,10 @@ a {
   padding: 0 5px;
 }
 
+p {
+  color: rgb(49, 49, 49);
+}
+
 .profile-picture-small {
   width: 150px;
 }
@@ -34,6 +38,18 @@ a {
 
 .details-picture {
   height: 150px;
+}
+
+.category {
+  font-size: 1.2em;
+}
+
+strong {
+  font-size: 1.2em;
+}
+
+.username {
+  font-weight: bold;
 }
 
 .backdrop {
@@ -89,6 +105,7 @@ a {
 .landing-button {
   background-color: #DD7373;
   border-color: #DD7373;
+  padding: 1.5em 3.5em;
 }
 
 .btn-primary:hover {
@@ -96,6 +113,40 @@ a {
   border-color: #E07F7F !important;
 }
 
+.jumbo-background {
+  background-image: url('../images/hero3.jpg');
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.jumbotron {
+  background: rgba(219, 161, 161, 0.2);
+}
+
+.landing-text-container {
+  border-radius: 35px;
+  background: rgba(219, 161, 161, 0.9);
+  padding: 3rem 0;
+}
+
 .hero-text {
-  font-size: 1.6rem;
+  color: rgb(49, 49, 49);
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+  font-style: oblique;
+}
+
+.feature-header {
+  font-family: 'Bitter', serif;
+  font-weight: 500;
+  font-size: 2.2rem;
+  color: rgb(49, 49, 49);
+}
+
+.details-header {
+  font-family: 'Bitter', serif;
+  color: rgb(49, 49, 49);
+  font-size: 1.5rem;
+  font-weight: 500;
 }
