@@ -75,10 +75,27 @@ a {
   color: #11465B !important; 
 }
 
-.s1-text > h1 {
+.landing-header, .landing-header-title{
   font-family: 'Bitter', serif;
-  font-weight: 600;
+  font-weight: 500;
+  font-size: 3.2rem;
   color: #269ECC; 
 }
 
-/* //TODO fazer backdrop preencher a altura toda da tela */
+.landing-header-title {
+  color: #2082A7; 
+}
+
+.landing-button {
+  background-color: #DD7373;
+  border-color: #DD7373;
+}
+
+.btn-primary:hover {
+  background-color: #E07F7F !important;
+  border-color: #E07F7F !important;
+}
+
+.hero-text {
+  font-size: 1.6rem;
+}

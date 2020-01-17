@@ -6,34 +6,35 @@ if (document.getElementById('validatedCustomFile')) {
   })
 }
 
-const textContent = ["Café?", "Brigadeiro?", "Lanche natural?", "Pipoca?", "Batatinha?", "Bolo de pote?", "Frutas?", "Milho cozido?"]
+const textContent = ["Lanche natural?", "Café?", "Brigadeiro?", "Pipoca?", "Batatinha?", "Bolo de pote?", "Banana?", "Milho cozido?"]
 let counter = 1;
+
 
 function fade(element) {
   var op = 1;  // initial opacity
   var timer = setInterval(function () {
       if (op <= 0.1){
+          element.style.display = 'none';
           clearInterval(timer);
           setText(element);
-          element.style.display = 'none';
       }
       element.style.opacity = op;
       element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-      op -= op * 0.1;
+      op -= op * 0.2;
   }, 10);
 }
 
 function unfade(element) {
   var op = 0.1;  // initial opacity
-  element.style.display = 'block';
+  element.style.display= 'block';
   var timer = setInterval(function () {
       if (op >= 1){
         clearInterval(timer);
-        setTimeout(fade(element), 4000)
+        setTimeout(() => {fade(element)}, 3000)
       }
       element.style.opacity = op;
       element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-      op += op * 0.1;
+      op += op * 0.2;
   }, 10);
 }
 
@@ -49,5 +50,6 @@ function setText (element) {
 
 if (document.getElementById("text-change")) {
   const textChange = document.getElementById("text-change");
-  let myTimer = fade(textChange);
+  const cycle = () => fade(textChange);
+  let myTimer = setTimeout(cycle, 4000);
 }
